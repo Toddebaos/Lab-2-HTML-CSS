@@ -24,3 +24,10 @@ function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email.trim());
 }
+
+/**
+ * validateMessage() - Check if message is at least 20 characters long
+ */
+function validateMessage(message) {
+    return message.trim().length >= 20;
+}
