@@ -16,3 +16,11 @@ function validateName(name) {
     const nameRegex = /^[a-zA-Z\s'-]{1,}$/;
     return nameRegex.test(name.trim());
 }
+
+/**
+ * validateEmail() - Check if email format is valid (contains @ and domain)
+ */
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.trim());
+}
