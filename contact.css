@@ -52,6 +52,32 @@ textarea:focus {
     border-color: #007bff;
 }
 
+/* Error State */
+input.input-error,
+select.input-error,
+textarea.input-error {
+    border-color: #dc3545;
+}
+
+input.input-error:focus,
+select.input-error:focus,
+textarea.input-error:focus {
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.3);
+}
+
+/* Valid State */
+input.input-valid,
+select.input-valid,
+textarea.input-valid {
+    border-color: #28a745;
+}
+
+input.input-valid:focus,
+select.input-valid:focus,
+textarea.input-valid:focus {
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
 /* Buttons */
 .btn {
     padding: 0.75rem 1.5rem;
@@ -78,6 +104,7 @@ textarea:focus {
     font-size: 0.85rem;
     margin-top: 0.25rem;
     display: none;
+    min-height: 1.2rem;
 }
 
 .error-message.show {

@@ -40,6 +40,26 @@ const subjectError = document.getElementById('subjectError');
 const messageError = document.getElementById('messageError');
 const characterCounter = document.getElementById('characterCounter');
 
+/**
+ * showError() - Display error message below the field
+ */
+function showError(inputElement, errorElement, errorText) {
+    inputElement.classList.add('input-error');
+    inputElement.classList.remove('input-valid');
+    errorElement.textContent = errorText;
+    errorElement.classList.add('show');
+}
+
+/**
+ * clearError() - Remove error message when field is valid
+ */
+function clearError(inputElement, errorElement) {
+    inputElement.classList.remove('input-error');
+    inputElement.classList.add('input-valid');
+    errorElement.textContent = '';
+    errorElement.classList.remove('show');
+}
+
 // Real-time Character Counter
 function updateCharacterCounter() {
     const messageLength = messageInput.value.length;
