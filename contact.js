@@ -39,6 +39,7 @@ const emailError = document.getElementById('emailError');
 const subjectError = document.getElementById('subjectError');
 const messageError = document.getElementById('messageError');
 const characterCounter = document.getElementById('characterCounter');
+const successMessage = document.getElementById('successMessage');
 
 /**
  * showError() - Display error message below the field
@@ -58,6 +59,21 @@ function clearError(inputElement, errorElement) {
     inputElement.classList.add('input-valid');
     errorElement.textContent = '';
     errorElement.classList.remove('show');
+}
+
+/**
+ * clearForm() - Clear all form fields after successful submission
+ */
+function clearForm() {
+    contactForm.reset();
+    
+    // Remove validation classes
+    [firstNameInput, lastNameInput, emailInput, subjectInput, phoneInput, messageInput].forEach(input => {
+        input.classList.remove('input-valid', 'input-error');
+    });
+
+    // Reset character counter
+    updateCharacterCounter();
 }
 
 // Real-time Character Counter
@@ -118,6 +134,17 @@ contactForm.addEventListener('submit', function(event) {
     }
 
     if (isValid) {
-        console.log('Form is valid!');
+        // Show success message
+        const firstName = firstNameInput.value.trim();
+        successMessage.textContent = `Thank you ${firstName}! I will contact you soon!`;
+        successMessage.classList.add('show');
+
+        // Clear form
+        clearForm();
+
+        // Hide success message after 3 seconds
+        setTimeout(function() {
+            successMessage.classList.remove('show');
+        }, 3000);
     }
 });
