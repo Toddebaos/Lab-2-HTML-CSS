@@ -98,39 +98,64 @@ contactForm.addEventListener('submit', function(event) {
     // Prevent page reload when form is submitted
     event.preventDefault();
 
+    // Reset all error displays
+    [firstNameError, lastNameError, emailError, subjectError, messageError].forEach(error => {
+        error.textContent = '';
+        error.classList.remove('show');
+    });
+
     let isValid = true;
 
     // Validate First Name
     if (firstNameInput.value.trim() === '') {
+        showError(firstNameInput, firstNameError, 'First name is required');
         isValid = false;
     } else if (!validateName(firstNameInput.value)) {
+        showError(firstNameInput, firstNameError, 'First name can only contain letters');
         isValid = false;
+    } else {
+        clearError(firstNameInput, firstNameError);
     }
 
     // Validate Last Name
     if (lastNameInput.value.trim() === '') {
+        showError(lastNameInput, lastNameError, 'Last name is required');
         isValid = false;
     } else if (!validateName(lastNameInput.value)) {
+        showError(lastNameInput, lastNameError, 'Last name can only contain letters');
         isValid = false;
+    } else {
+        clearError(lastNameInput, lastNameError);
     }
 
     // Validate Email
     if (emailInput.value.trim() === '') {
+        showError(emailInput, emailError, 'Email is required');
         isValid = false;
     } else if (!validateEmail(emailInput.value)) {
+        showError(emailInput, emailError, 'Please enter a valid email address');
         isValid = false;
+    } else {
+        clearError(emailInput, emailError);
     }
 
     // Validate Subject
     if (subjectInput.value === '') {
+        showError(subjectInput, subjectError, 'Please select a subject');
         isValid = false;
+    } else {
+        clearError(subjectInput, subjectError);
     }
 
     // Validate Message
     if (messageInput.value.trim() === '') {
+        showError(messageInput, messageError, 'Message is required');
         isValid = false;
     } else if (!validateMessage(messageInput.value)) {
+        showError(messageInput, messageError, 'Message must be at least 20 characters long');
         isValid = false;
+    } else {
+        clearError(messageInput, messageError);
     }
 
     if (isValid) {
