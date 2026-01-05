@@ -89,6 +89,15 @@ textarea:focus {
     font-size: 0.85rem;
     margin-top: 0.25rem;
     color: #666;
+    transition: color 0.3s ease;
+}
+
+.character-counter.below-minimum {
+    color: #dc3545;
+}
+
+.character-counter.valid {
+    color: #28a745;
 }
 
 /* Success Message */

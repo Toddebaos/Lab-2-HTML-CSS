@@ -31,3 +31,28 @@ function validateEmail(email) {
 function validateMessage(message) {
     return message.trim().length >= 20;
 }
+
+// Error message elements
+const firstNameError = document.getElementById('firstNameError');
+const lastNameError = document.getElementById('lastNameError');
+const emailError = document.getElementById('emailError');
+const subjectError = document.getElementById('subjectError');
+const messageError = document.getElementById('messageError');
+const characterCounter = document.getElementById('characterCounter');
+
+// Real-time Character Counter
+function updateCharacterCounter() {
+    const messageLength = messageInput.value.length;
+    characterCounter.textContent = `${messageLength} / 20 characters`;
+
+    if (messageLength < 20) {
+        characterCounter.classList.add('below-minimum');
+        characterCounter.classList.remove('valid');
+    } else {
+        characterCounter.classList.remove('below-minimum');
+        characterCounter.classList.add('valid');
+    }
+}
+
+// Event Listener for Real-time Character Counter
+messageInput.addEventListener('input', updateCharacterCounter);
