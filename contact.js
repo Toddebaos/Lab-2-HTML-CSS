@@ -6,3 +6,13 @@ const emailInput = document.getElementById('email');
 const subjectInput = document.getElementById('subject');
 const phoneInput = document.getElementById('phone');
 const messageInput = document.getElementById('message');
+
+// Validation Functions
+
+/**
+ * validateName() - Check if name contains only letters (no numbers or special characters)
+ */
+function validateName(name) {
+    const nameRegex = /^[a-zA-Z\s'-]{1,}$/;
+    return nameRegex.test(name.trim());
+}
