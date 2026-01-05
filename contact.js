@@ -56,3 +56,48 @@ function updateCharacterCounter() {
 
 // Event Listener for Real-time Character Counter
 messageInput.addEventListener('input', updateCharacterCounter);
+
+// Form Submission
+contactForm.addEventListener('submit', function(event) {
+    // Prevent page reload when form is submitted
+    event.preventDefault();
+
+    let isValid = true;
+
+    // Validate First Name
+    if (firstNameInput.value.trim() === '') {
+        isValid = false;
+    } else if (!validateName(firstNameInput.value)) {
+        isValid = false;
+    }
+
+    // Validate Last Name
+    if (lastNameInput.value.trim() === '') {
+        isValid = false;
+    } else if (!validateName(lastNameInput.value)) {
+        isValid = false;
+    }
+
+    // Validate Email
+    if (emailInput.value.trim() === '') {
+        isValid = false;
+    } else if (!validateEmail(emailInput.value)) {
+        isValid = false;
+    }
+
+    // Validate Subject
+    if (subjectInput.value === '') {
+        isValid = false;
+    }
+
+    // Validate Message
+    if (messageInput.value.trim() === '') {
+        isValid = false;
+    } else if (!validateMessage(messageInput.value)) {
+        isValid = false;
+    }
+
+    if (isValid) {
+        console.log('Form is valid!');
+    }
+});
