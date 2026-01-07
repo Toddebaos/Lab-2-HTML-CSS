@@ -170,6 +170,6 @@ contactForm.addEventListener('submit', function(event) {
         // Hide success message after 3 seconds
         setTimeout(function() {
             successMessage.classList.remove('show');
-        }, 3000);
+        }, 5000);
     }
 });
